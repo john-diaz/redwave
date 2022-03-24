@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.1"
 
+gem "rake", "~> 13.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 6.0.4", ">= 6.0.4.7"
 # Use postgresql as the database for Active Record
@@ -29,10 +30,10 @@ gem "jsbundling-rails"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.2", require: false
 
-gem "pry-rails"
 gem "name_of_person"
 
 group :development, :test do
+  gem "pry-rails"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

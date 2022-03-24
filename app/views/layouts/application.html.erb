@@ -4,12 +4,24 @@
     <title>Redwave</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script>
+      localStorage.theme = "dark";
+      
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
-
-  <body>
-    <%= yield %>
+  <body class="bg-slate-800 text-white">
+    <%= render partial: "shared/navigation" %>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <%= yield %>
+    </div>
   </body>
 </html>
